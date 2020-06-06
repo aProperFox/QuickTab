@@ -12,5 +12,5 @@ interface ProjectDao {
     fun getProjects(): LiveData<List<Project>>
 
     @Insert
-    fun insertProject(project: Project)
+    fun insertProject(project: Project): Long
 }

@@ -9,4 +9,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="project_name_hint">Project name</string>
+    <string name="project_description_hint">Enter something about this project (optional)</string>
+    <string name="new_project_ok">Create</string>
+    <string name="new_project_cancel">Cancel</string>
 </resources>

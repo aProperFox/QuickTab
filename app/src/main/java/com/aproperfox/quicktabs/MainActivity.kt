@@ -5,6 +5,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.aproperfox.quicktabs.di.AppComponent
+import com.aproperfox.quicktabs.views.NewProjectDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,8 +17,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         fab = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-
+        fab.setOnClickListener {
+            val tag = NewProjectDialog::class.java.simpleName
+            val dialog = supportFragmentManager.findFragmentByTag(tag) as? NewProjectDialog
+                ?: NewProjectDialog()
+            dialog.show(supportFragmentManager, tag)
         }
     }
 
