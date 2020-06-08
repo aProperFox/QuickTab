@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.aproperfox.quicktabs.QuickTabsApp
 import com.aproperfox.quicktabs.R
 import com.aproperfox.quicktabs.db.ProjectDao
@@ -28,17 +30,22 @@ class NewProjectDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val b: AlertDialog.Builder = AlertDialog.Builder(activity)
-            .setTitle("New Project")
+            .setTitle(getString(R.string.new_project_title))
             .setPositiveButton(getString(R.string.new_project_ok)) { _, _ ->
                 val projectName = nameInput.text?.toString()
                 if (projectName.isNullOrBlank()) {
-                    nameLayout.error = "Invalid project name"
+                    nameLayout.error = getString(R.string.project_name_error)
                 } else {
                     val project = Project(
                         name = nameInput.text?.toString()!!,
                         description = descInput.text?.toString()
                     )
-                    projectDao.insertProject(project)
+                    val newProjectId = projectDao.insertProject(project)
+                    findNavController().navigate(
+                        R.id.action_FirstFragment_to_SecondFragment,
+                        ChordBuilderFragment.bundle(newProjectId)
+                    )
+                    dismiss()
                 }
             }
             .setNegativeButton(

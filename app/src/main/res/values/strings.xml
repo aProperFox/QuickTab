@@ -14,4 +14,10 @@
     <string name="project_description_hint">Enter something about this project (optional)</string>
     <string name="new_project_ok">Create</string>
     <string name="new_project_cancel">Cancel</string>
+    <string name="new_project_title">New project</string>
+    <string name="project_name_error">Invalid project name</string>
+
+    <string name="tuning_label">Tuning</string>
+    <string name="tuning_disclaimer">You can change this later</string>
+
 </resources>

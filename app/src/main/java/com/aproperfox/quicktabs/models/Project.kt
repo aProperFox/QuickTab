@@ -13,6 +13,7 @@ import java.util.*
 data class Project(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "description") val description: String?,
+    @ColumnInfo(name = "tuning") val tuning: Tuning = Tuning.Standard,
     @ColumnInfo(name = "created_at") val createdAt: Long = Calendar.getInstance().timeInMillis,
     @ColumnInfo(name = "updated_at") val updatedAt: Long = Calendar.getInstance().timeInMillis
 ) {
