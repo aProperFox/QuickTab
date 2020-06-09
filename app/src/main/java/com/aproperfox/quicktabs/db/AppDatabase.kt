@@ -9,6 +9,7 @@ import com.aproperfox.quicktabs.models.Project
 import java.lang.IllegalArgumentException
 
 @Database(entities = [Project::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun projectDao(): ProjectDao
 

@@ -29,12 +29,11 @@ class ProjectsFragment : Fragment() {
     @Inject
     lateinit var viewModel: ProjectsViewModel
     lateinit var recycler: RecyclerView
-    lateinit var adapter: ProjectsAdapter
+    val adapter: ProjectsAdapter = ProjectsAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (requireContext().applicationContext as QuickTabsApp).appComponent.inject(this)
-        adapter = ProjectsAdapter()
         viewModel.projects.observe(viewLifecycleOwner, Observer {
             adapter.projects = it
         })

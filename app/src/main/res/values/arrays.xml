@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tunings">
+        <item>Standard</item>
+        <item>DropD</item>
+        <item>DADGAD</item>
+        <item>Iris</item>
+        <item>Riot</item>
+        <item>Hazey Jane</item>
+        <item>Fernando</item>
+        <item>OpenA</item>
+        <item>OpenB</item>
+        <item>OpenC</item>
+        <item>OpenD</item>
+        <item>OpenE</item>
+        <item>OpenF</item>
+        <item>OpenG</item>
+        <item>Custom</item>
+    </string-array>
+</resources>

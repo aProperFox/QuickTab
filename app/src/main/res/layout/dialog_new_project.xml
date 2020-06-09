@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="@dimen/margin_normal"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -25,22 +26,74 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tuning_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tuning_label"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/project_name_layout"
+        style="@style/TextAppearance.AppCompat.Caption"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/tuning_selector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tuning_label"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/custom_tuning_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/tuning_label"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:visibility="gone"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tuning_selector">
+
+        <EditText
+            android:id="@+id/custom_tuning_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|start"
+            style="@style/SubtitleAppearance" />
+
+        <TextView
+            android:id="@+id/custom_tuning_disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tuning_disclaimer"
+            style="@style/TextAppearance.AppCompat.Caption"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/project_desc_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/project_description_hint"
+        android:layout_marginTop="@dimen/margin_normal"
         app:boxBackgroundMode="outline"
         app:boxBackgroundColor="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/project_name_layout">
+        app:layout_constraintTop_toBottomOf="@+id/custom_tuning_layout">
 
         <EditText
             android:id="@+id/project_desc_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="5"
+            android:minLines="2"
+            android:maxLines="5"
             android:gravity="top|start"
             style="@style/SubtitleAppearance" />
 
